@@ -31,7 +31,7 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           local-dir: public
-          remote-dir: /path/to/remote/directory
+          remote-dir: /srv/dev-disk-by-uuid-f4fc2a45-bf9e-4201-8897-946abbcea427/Users/iteam/site_files/
 
       - name: Trigger Webhook
         run: |
