@@ -30,6 +30,5 @@ jobs:
           server: ${{ secrets.SFTP_SERVER }}
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          local-dir: public
-          remote-dir: /srv/dev-disk-by-uuid-f4fc2a45-bf9e-4201-8897-946abbcea427/Users/iteam/site_files/
+          server-dir: /srv/dev-disk-by-uuid-f4fc2a45-bf9e-4201-8897-946abbcea427/Users/iteam/site_files/
 
