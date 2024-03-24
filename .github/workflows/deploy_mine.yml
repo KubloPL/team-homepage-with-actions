@@ -33,6 +33,3 @@ jobs:
           local-dir: public
           remote-dir: /srv/dev-disk-by-uuid-f4fc2a45-bf9e-4201-8897-946abbcea427/Users/iteam/site_files/
 
-      - name: Trigger Webhook
-        run: |
-          curl -X POST -d '{}' ${{ secrets.WEBHOOK_URL }}
