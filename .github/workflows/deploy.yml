@@ -25,7 +25,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to SFTP
-        uses: appleboy/sftp-action@master
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SFTP_HOST }}
           username: ${{ secrets.SFTP_USERNAME }}
