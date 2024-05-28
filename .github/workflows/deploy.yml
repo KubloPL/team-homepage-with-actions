@@ -1,9 +1,9 @@
-name: Build site
+name: Build and Deploy Site
 
 on:
   push:
-#    branches:
-#     - develop
+    branches:
+      - main
 
 jobs:
   build-and-deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 21
+          node-version: 14
 
       - name: Install dependencies
         run: npm install
@@ -24,13 +24,12 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy to FTPS
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Deploy to SFTP
+        uses: appleboy/sftp-action@master
         with:
-          server: ${{ secrets.FTPS_SERVER }}
-          username: ${{ secrets.FTPS_USERNAME }}
-          password: ${{ secrets.FTPS_PASSWORD }}
-          server-dir: /srv/dev-disk-by-uuid-f4fc2a45-bf9e-4201-8897-946abbcea427/Users/iteam/site_files/
-          protocol: ftps
-          port: 21
-
+          host: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          port: ${{ secrets.SFTP_PORT }}
+          local: "dist" 
+          remote: "/home/demoman/github-actions/" # Path on the SFTP server where files will be uploaded
