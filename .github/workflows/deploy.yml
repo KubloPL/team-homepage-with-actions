@@ -25,11 +25,11 @@ jobs:
         run: npm run build
 
       - name: Deploy to SFTP
-        uses: appleboy/ssh-action@master
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          host: ${{ secrets.SFTP_HOST }}
+          server: ${{ secrets.SFTP_HOST }}
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           port: ${{ secrets.SFTP_PORT }}
-          local: "dist" 
-          remote: "/home/demoman/github-actions/" # Path on the SFTP server where files will be uploaded
+          local_path: "./public/*" 
+          remote_path: "/home/demoman/github-actions/" # Path on the SFTP server where files will be uploaded
