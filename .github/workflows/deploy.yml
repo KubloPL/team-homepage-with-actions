@@ -31,5 +31,5 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           port: ${{ secrets.SFTP_PORT }}
-          local_path: "./public/*" 
-          remote_path: "/home/demoman/github-actions/" # Path on the SFTP server where files will be uploaded
+          local_path: ${{ secrets.LOCAL_PATH }} 
+          remote_path: ${{ secrets.REMOTE_PATH }} 
